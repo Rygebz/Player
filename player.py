@@ -1,6 +1,6 @@
 import os
 import random
-import pygame
+import pygame_sdl2 as pygame
 import sys
 
 pygame.mixer.init()
