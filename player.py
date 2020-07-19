@@ -11,7 +11,7 @@ choice = 1
 def music_load(path):
 	music = []
 	for filename in os.listdir(path):
-		if filename.endswith('.mp3'):
+		if filename.endswith('.ogg'):
 			music.append(os.path.join(path, filename))
 	return music
 
