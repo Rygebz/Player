@@ -4,7 +4,7 @@ import pygame_sdl2 as pygame
 import sys
 
 pygame.mixer.init()
-path = '/home/patross2004/Music/'
+path = os.environ['HOME'] +'/music'
 
 choice = 1
 
