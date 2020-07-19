@@ -21,7 +21,7 @@ music = music_load(path)
 choice_music = random.randrange(0, len(music))
 pygame.mixer.music.load(music[choice_music])
 
-print("Random music - 1, Next song - 2, Stop - 3, resume - 4, Mute - 5, Unmute - 6, Exit - 7: \n")
+print("Random music - 1, Stop - 2, resume - 3, Mute - 4, Unmute - 5, Exit - 6: \n")
 while(choice != 0):
 	choice = getch.getch()
 	if choice == '1':
@@ -30,21 +30,16 @@ while(choice != 0):
 		pygame.mixer.music.play()
 		print("Playing:\n" + filename)
 	elif choice == '2':
-		choice_music = random.randrange(0, len(music))
-		pygame.mixer.music.load(music[choice_music])
-		pygame.mixer.music.play()
-		print("Playing:\n" + filename)
-	elif choice == '3':
 		pygame.mixer.music.pause()
 		print("Music is paused")
-	elif choice == '4':
+	elif choice == '3':
 		pygame.mixer.music.unpause()
 		print("Music is unpaused")
-	elif choice == '5':
+	elif choice == '4':
 		pygame.mixer.music.set_volume(0.0)
-	elif choice == '6':
+	elif choice == '5':
 		pygame.mixer.music.set_volume(1.0)
-	elif choice == '7':
+	elif choice == '6':
 		sys.exit()
-	#elif choice == '9':	
+	#elif choice == '7':	
 		#Autoplay
