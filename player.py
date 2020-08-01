@@ -5,6 +5,7 @@ import sys
 import getch
 import multiprocessing
 import time
+import signal
 
 pygame.mixer.init()
 path = os.environ['HOME'] +'/Music'
@@ -25,6 +26,13 @@ autoplay = False
 filename = "none"
 choice = multiprocessing.Value('i', 0)
 
+# Executed on Ctrl-C
+def signal_handler(sig, frame):
+	p.terminate()
+	print('Ctrl+C detected: Exiting')
+	os._exit(0)
+signal.signal(signal.SIGINT, signal_handler)
+
 def loop(cho):
 	while(True):
 		char = getch.getch()
@@ -44,7 +52,7 @@ while True:
 		filename = random.choice(music)
 		pygame.mixer.music.load(filename)
 		pygame.mixer.music.play()
-		print("Playing:\n " + os.path.basename(filename))
+		print("Playing:\n" + os.path.basename(filename))
 	elif ch == 2:
 		pygame.mixer.music.pause()
 		print("Music is paused")
