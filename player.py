@@ -28,7 +28,10 @@ choice = multiprocessing.Value('i', 0)
 def loop(cho):
 	while(True):
 		char = getch.getch()
-		cho.value = int(char)
+		try:
+			cho.value = int(char)
+		except ValueError:
+			print("Invalid number. Try again...")
 
 p = multiprocessing.Process(target=loop, args=(choice,))
 p.start()
